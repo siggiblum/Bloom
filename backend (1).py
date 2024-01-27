@@ -9,7 +9,7 @@ from valag import *
 from framvirkir_vextir import *
 import datetime
 from cs import *
-from nss2 import * 
+# from nss2 import * 
 
 app = Flask(__name__)
 CORS(app)
@@ -20,35 +20,26 @@ def is_market_open():
 
     return current_time < market_close_time
 
-# def credit_spread():
-#     """
-#         Herna kemur credit spread, sem returnar nafni, krofu a RIK, krofu a brefid, og credit spread
-#     """
-#     return ["ARION CB", 2, 3, 1]
-
-
-def framvirkir_vextir():
-    return [[1,2], [2,3], [4,5], [7, 8], [10, 9]]
 
 # Define a route to get the line chart data
 @app.route('/data')
 def data():
-    data = nss_main()
-    # data = {
-    #     'RIKS': [random.randint(0, 100) for _ in range(10)],
-    #     'RIKB': [random.randint(0, 100) for _ in range(10)],
-    #     'ISB CB': [random.randint(0, 100) for _ in range(10)], #Spurning að beila á þetta
-    #     'ISB CBI': [random.randint(0, 100) for _ in range(10)],
-    #     'ARION CB': [random.randint(0, 100) for _ in range(10)],
-    #     'ARION CBI': [random.randint(0, 100) for _ in range(10)],
-    #     'LBANK CB': [random.randint(0, 100) for _ in range(10)],
-    #     'LBANK CBI': [random.randint(0, 100) for _ in range(10)],
-    #     'RVK': [random.randint(0, 100) for _ in range(10)],
-    #     'RVKV': [random.randint(0, 100) for _ in range(10)],
-    #     'OR': [random.randint(0, 100) for _ in range(10)],
-    #     'LSS': [random.randint(0, 100) for _ in range(10)],
-    #     'REGINN': [random.randint(0, 100) for _ in range(10)]
-    # }
+    # data = nss_main()
+    data = {
+        'RIKS': [random.randint(0, 100) for _ in range(10)],
+        'RIKB': [random.randint(0, 100) for _ in range(10)],
+        'ISB CB': [random.randint(0, 100) for _ in range(10)], #Spurning að beila á þetta
+        'ISB CBI': [random.randint(0, 100) for _ in range(10)],
+        'ARION CB': [random.randint(0, 100) for _ in range(10)],
+        'ARION CBI': [random.randint(0, 100) for _ in range(10)],
+        'LBANK CB': [random.randint(0, 100) for _ in range(10)],
+        'LBANK CBI': [random.randint(0, 100) for _ in range(10)],
+        'RVK': [random.randint(0, 100) for _ in range(10)],
+        'RVKV': [random.randint(0, 100) for _ in range(10)],
+        'OR': [random.randint(0, 100) for _ in range(10)],
+        'LSS': [random.randint(0, 100) for _ in range(10)],
+        'REGINN': [random.randint(0, 100) for _ in range(10)]
+    }
     return jsonify(data)
 
 @app.route('/table_data')
